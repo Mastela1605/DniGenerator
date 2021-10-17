@@ -28,10 +28,27 @@ public class MenuService
 			switch ( opcion )
 			{
 			case 1:
-
+				String dniRandom;
+				String letra;
+				dniRandom = validarService.generadorDni ( );
+				letra = ( validarService.comprobarLetra ( validarService.listaAlgoritmo ( ), validarService.calcularResto ( dniRandom ) ) );
+				String dniFinal = dniRandom.concat ( letra );
+				System.out.printf ( "EL DNI GENERADO ES : %s%n", dniFinal );
 				break;
 			case 2:
-
+				String dniUsuario = validarService.obtenerDNI ( )
+						.getDni ( );
+				Integer resto = validarService.calcularResto ( dniUsuario );
+				String letraFinal = validarService.comprobarLetra ( validarService.listaAlgoritmo ( ), resto );
+				String letraUsuario = dniUsuario.substring ( 8 );
+				if ( letraFinal.equals ( letraUsuario ) )
+				{
+					System.out.printf ( "Letra correcta%n" );
+				}
+				else
+				{
+					System.out.printf ( "Letra incorrecta, tendria que ser : %s%n", letraFinal );
+				}
 				break;
 			case 3:
 

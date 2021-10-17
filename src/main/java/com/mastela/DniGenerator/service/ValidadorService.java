@@ -90,6 +90,15 @@ public class ValidadorService
 		return total;
 	}
 
+	public Integer calcularResto ( String nif )
+	{
+		Integer total = Integer.valueOf ( nif.substring ( 0, 8 ) );
+
+		total = total % 23;
+
+		return total;
+	}
+
 	public Boolean validarLongitudNif ( DatosNif nif )
 	{
 		if ( nif.getDni ( )
@@ -120,6 +129,20 @@ public class ValidadorService
 
 		return true;
 
+	}
+
+	public String generadorDni ( )
+	{
+
+//		Random random = new Random ( );
+//		return random.
+		int min = 10000000;
+		int max = 99999999;
+
+		// Generate random int value from 50 to 100
+		int random_int = ( int ) Math.floor ( Math.random ( ) * ( max - min + 1 ) + min );
+		String valor = String.valueOf ( random_int );
+		return valor;
 	}
 
 }
